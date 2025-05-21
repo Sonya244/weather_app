@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useDebounce } from '../useDebounce';
 
 type SearchBarProps = {
     onSearch: (city: string) => void;
 }
+
+const [suggestions, setSuggestions] = useState<string[]>([]);
+
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [inputValue, setInputValue] = useState('');
 
